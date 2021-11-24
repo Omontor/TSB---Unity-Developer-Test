@@ -13,7 +13,7 @@ public class MouseLook : MonoBehaviour
     {
 #if UNITY_EDITOR
         QualitySettings.vSyncCount = 0;  // VSync must be disabled
-        Application.targetFrameRate = 144;
+        Application.targetFrameRate = 600;
 #endif
     }
 

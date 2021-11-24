@@ -246,7 +246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 6471082279534484950, guid: 78d65fa27337644479f9a6dd6925a3d8, type: 3}
-  numAsteroids: 1500
+  blueAsteroidPrefab: {fileID: 6471082279534484950, guid: c1351fe7aecf21e4891dd88d9e667a99, type: 3}
+  numAsteroids: 500
+  numBlueAsteroids: 500
   min: -65
   max: 65
 --- !u!4 &747552806
