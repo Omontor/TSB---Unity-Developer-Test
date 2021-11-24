@@ -19,33 +19,25 @@ public class CollissionSystem : JobComponentSystem
 
     struct CollisionEventImpulseJob: ICollisionEventsJob
     {
-        [ReadOnly] public ComponentDataFromEntity<Shoot> shotGroup;
+        public ComponentDataFromEntity<Shoot> shotGroup;
         public ComponentDataFromEntity<Asteroid> asteroridGroup;
+        public ComponentDataFromEntity<ObjectID> id;
 
         public void Execute(CollisionEvent collisionEvent)
         {
+
+    
             Entity entityA = collisionEvent.EntityA;
             Entity entityB = collisionEvent.EntityB;
 
-            bool isTargetA = asteroridGroup.HasComponent(entityA);
-            bool istargetB = asteroridGroup.HasComponent(entityB);
-
-            bool isbulletA = shotGroup.HasComponent(entityA);
-            bool isbulletB = shotGroup.HasComponent(entityB);
-
-            if (isbulletA && istargetB)
+            if (id[entityA].isAsteroid == true && id[entityB].isAsteroid == false)
             {
-                var aliveComponent = asteroridGroup[entityB];
-                aliveComponent.alive = false;
-                asteroridGroup[entityB] = aliveComponent;
-            }           
-            
-            if (isbulletB && isTargetA)
-            {
+                
                 var aliveComponent = asteroridGroup[entityA];
                 aliveComponent.alive = false;
                 asteroridGroup[entityA] = aliveComponent;
             }
+         
 
         }
     }
@@ -55,7 +47,8 @@ public class CollissionSystem : JobComponentSystem
         JobHandle jobHandle = new CollisionEventImpulseJob
         {
             shotGroup = GetComponentDataFromEntity<Shoot>(),
-            asteroridGroup = GetComponentDataFromEntity<Asteroid>()
+            asteroridGroup = GetComponentDataFromEntity<Asteroid>(),
+            id = GetComponentDataFromEntity<ObjectID>(),
         }.Schedule(m_StepPhysicsWorldSystem.Simulation, ref m_BuildPhysicsWorldSystem.PhysicsWorld, inputDeps);
 
         jobHandle.Complete();

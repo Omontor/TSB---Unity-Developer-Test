@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 643178681603569861}
   - component: {fileID: 3116469382515722943}
   - component: {fileID: 776776379243425263}
+  - component: {fileID: 628588906104190776}
   m_Layer: 0
   m_Name: Shot
   m_TagString: Untagged
@@ -304,3 +305,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeLeft: 2.5
+--- !u!114 &628588906104190776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847713897648772879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd726f018f95a64cafc0a088c45f026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAsteroid: 0
+  isShot: 1

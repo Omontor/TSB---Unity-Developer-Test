@@ -34,13 +34,18 @@ public class TimedDestroySystem : JobComponentSystem
                         ref Asteroid asteroid) =>
             {
 
-                if (asteroid.alive)
+                if (!asteroid.alive)
                 {
-                    for (int i = 0; i < 20; i++)
+                    for (int i = 0; i < 1; i++)
                     {
-                        float offset = (float3)UnityEngine.Random.insideUnitSphere * 2.0f;
+                        float3 offset = (float3)UnityEngine.Random.insideUnitSphere * 2.0f;
                         var splat = ECSManager.manager.Instantiate(ECSManager.chunk);
-                        float3 randomDir = new float3(UnityEngine.Random.Range(-1, 1));
+                        float3 randomDir = new float3(UnityEngine.Random.Range(-1, 1),
+                            UnityEngine.Random.Range(-1, 1), 
+                            UnityEngine.Random.Range(-1, 1));
+                        ECSManager.manager.SetComponentData(splat, new Translation { Value = position.Value + offset });
+                        ECSManager.manager.SetComponentData(splat, new PhysicsVelocity { Linear = randomDir * 2 });
+
                     }
                 }
 

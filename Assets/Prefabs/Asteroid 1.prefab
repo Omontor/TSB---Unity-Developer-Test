@@ -303,4 +303,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f7cff795ad9a542ac9adf2952ad2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alive: 1
+  alive: 0
+  isAsteroid: 0
