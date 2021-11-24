@@ -9,16 +9,18 @@ public class ECSManager : MonoBehaviour
     public static EntityManager manager;
     public GameObject asteroidPrefab;
     public GameObject blueAsteroidPrefab;
+    public GameObject ChunkPrefab;
     public GameObject shotPrefab;
     public GameObject muzzle;
 
     public int numAsteroids;
     public int numBlueAsteroids;
     public int min, max;
-    int numshots = 10;
+    int numshots = 1;
     BlobAssetStore store;
 
     Entity shot;
+    public static Entity chunk;
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class ECSManager : MonoBehaviour
         Entity asteroid = GameObjectConversionUtility.ConvertGameObjectHierarchy(asteroidPrefab, settings);
         Entity blueAsteroid = GameObjectConversionUtility.ConvertGameObjectHierarchy(blueAsteroidPrefab, settings);
         shot = GameObjectConversionUtility.ConvertGameObjectHierarchy(shotPrefab, settings);
+        chunk = GameObjectConversionUtility.ConvertGameObjectHierarchy(ChunkPrefab, settings);
 
         for (int i = 0; i < numAsteroids; i++)
         {
