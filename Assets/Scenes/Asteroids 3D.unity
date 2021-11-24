@@ -247,6 +247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 6471082279534484950, guid: 78d65fa27337644479f9a6dd6925a3d8, type: 3}
   blueAsteroidPrefab: {fileID: 6471082279534484950, guid: c1351fe7aecf21e4891dd88d9e667a99, type: 3}
+  ChunkPrefab: {fileID: 4483863869003334382, guid: 1f16ddff646b4d347bb25e03f4afe9a3, type: 3}
   shotPrefab: {fileID: 3847713897648772879, guid: bb55d32df798f31499eaa998032d7f5c, type: 3}
   muzzle: {fileID: 1177170905}
   numAsteroids: 500

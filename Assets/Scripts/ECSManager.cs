@@ -64,7 +64,7 @@ public class ECSManager : MonoBehaviour
             for (int i = 0; i < numshots; i++)
             {
                 var instance = manager.Instantiate(shot);
-                var startPos = muzzle.transform.position + UnityEngine.Random.insideUnitSphere *2;
+                var startPos = muzzle.transform.position;
                 manager.SetComponentData(instance, new Translation { Value = startPos });
                 manager.SetComponentData(instance, new Rotation { Value = muzzle.transform.rotation });
             }
