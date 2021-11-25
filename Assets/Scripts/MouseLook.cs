@@ -35,7 +35,7 @@ public class MouseLook : MonoBehaviour
     {
 
        
-        this.transform.Translate(0, 0, 5);
+        this.transform.Translate(0, 0, 15);
         GameObject.Find("Hyper").GetComponent<AudioSource>().Play();
     }
 
