@@ -4823,6 +4823,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3116469382515722943, guid: bb55d32df798f31499eaa998032d7f5c, type: 3}
+      propertyPath: alive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3847713897648772879, guid: bb55d32df798f31499eaa998032d7f5c, type: 3}
       propertyPath: m_Name
       value: Shot Variant
