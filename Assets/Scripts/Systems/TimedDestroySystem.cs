@@ -48,6 +48,7 @@ public class TimedDestroySystem : JobComponentSystem
                     }
 
                     EntityManager.DestroyEntity(entity);
+                    GameObject.Find("Explosion").GetComponent<AudioSource>().Play();
                 }
 
             }).Run();

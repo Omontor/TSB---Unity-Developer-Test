@@ -12,6 +12,7 @@ public class ECSManager : MonoBehaviour
     public GameObject ChunkPrefab;
     public GameObject shotPrefab;
     public GameObject muzzle;
+    public AudioSource sfx;
 
     public int numAsteroids;
     public int numBlueAsteroids;
@@ -67,6 +68,7 @@ public class ECSManager : MonoBehaviour
                 var startPos = muzzle.transform.position;
                 manager.SetComponentData(instance, new Translation { Value = startPos });
                 manager.SetComponentData(instance, new Rotation { Value = muzzle.transform.rotation });
+                sfx.Play();
             }
         }
     }
