@@ -18,7 +18,7 @@ public class ShootSystem : JobComponentSystem
                         ref Shoot shoot) =>
             {
                 physics.Angular = float3.zero;
-                physics.Linear += dT * shoot.speed * math.forward(rotation.Value);
+                physics.Linear +=  shoot.speed * math.forward(rotation.Value);
 
             }).Schedule(inputDeps);
 
