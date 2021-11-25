@@ -21,11 +21,22 @@ public class MouseLook : MonoBehaviour
     {
         rotation.y += Input.GetAxis("Mouse X");
         rotation.x += -Input.GetAxis("Mouse Y");
-        float z = Input.GetAxis("Vertical");
         transform.eulerAngles = (Vector2)rotation * speed;
-        this.transform.Translate(0, 0, z * speed * 0.1f);
+
+        if (Input.GetKeyDown(KeyCode.W)) 
+        {
+            HyperSpace();
+        }
 
         UpdateCursorLock();
+    }
+
+    public void HyperSpace()
+    {
+
+       
+        this.transform.Translate(0, 0, 5);
+        GameObject.Find("Hyper").GetComponent<AudioSource>().Play();
     }
 
     public void SetCursorLock(bool value)

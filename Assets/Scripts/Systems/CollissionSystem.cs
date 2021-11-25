@@ -30,14 +30,19 @@ public class CollissionSystem : JobComponentSystem
             Entity entityA = collisionEvent.EntityA;
             Entity entityB = collisionEvent.EntityB;
 
-            if (id[entityA].isAsteroid == true && id[entityB].isAsteroid == false)
+            if (id[entityA].isAsteroid == true && id[entityB].isShot == true)
             {
                 
                 var aliveComponent = asteroridGroup[entityA];
                 aliveComponent.alive = false;
                 asteroridGroup[entityA] = aliveComponent;
+
+                var aliveComponent2 = shotGroup[entityB];
+                aliveComponent2.alive = false;
+                shotGroup[entityB] = aliveComponent2;
+
             }
-         
+
 
         }
     }

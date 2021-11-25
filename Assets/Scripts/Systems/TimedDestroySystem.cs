@@ -51,6 +51,21 @@ public class TimedDestroySystem : JobComponentSystem
                     GameObject.Find("Explosion").GetComponent<AudioSource>().Play();
                 }
 
+            }).Run();         
+        
+        
+        Entities
+            .WithoutBurst().WithStructuralChanges()
+            .ForEach((Entity entity,
+                        ref Translation position,
+                        ref Shoot shot) =>
+            {
+
+                if (!shot.alive)
+                {
+                    EntityManager.DestroyEntity(entity);
+                }
+
             }).Run();
 
         return inputDeps;
