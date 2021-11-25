@@ -18,8 +18,8 @@ public class FloatSystem : JobComponentSystem
                         ref Float floatData) =>
             {
 
-                float s = math.sin(dT + position.Value.x * .5f) * floatData.speed;
-                float c = math.cos(dT + position.Value.y * .5f) * floatData.speed;
+                float s = math.sin(dT + position.Value.x * 5f) * floatData.speed;
+                float c = math.cos(dT + position.Value.y * 5f) * floatData.speed;
                 float3 dir = new float3(s, c, s);
                 physics.Linear += dir;
 
