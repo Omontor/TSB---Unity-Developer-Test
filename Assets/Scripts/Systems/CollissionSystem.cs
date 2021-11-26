@@ -23,7 +23,7 @@ public class CollissionSystem : JobComponentSystem
         public ComponentDataFromEntity<Asteroid> asteroridGroup;
         public ComponentDataFromEntity<Health> healthGroup;
         public ComponentDataFromEntity<ObjectID> id;
-
+         public BufferFromEntity<CollissionBuffer> collisions;
         public void Execute(CollisionEvent collisionEvent)
         {
 
