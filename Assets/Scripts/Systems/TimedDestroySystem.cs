@@ -27,7 +27,23 @@ public class TimedDestroySystem : JobComponentSystem
 
             }).Run();
 
-         Entities
+
+
+        Entities
+            .WithoutBurst().WithStructuralChanges()
+            .ForEach((Entity entity,
+                        ref Shoot shot) =>
+            {
+
+                if (!shot.alive)
+                {
+                    EntityManager.DestroyEntity(entity);
+                }
+
+            }).Run();
+
+
+        Entities
             .WithoutBurst().WithStructuralChanges()
             .ForEach((Entity entity,
                         ref Translation position,
@@ -49,21 +65,25 @@ public class TimedDestroySystem : JobComponentSystem
 
                     EntityManager.DestroyEntity(entity);
                     GameObject.Find("Explosion").GetComponent<AudioSource>().Play();
+
                 }
 
             }).Run();         
         
-        
+
+
+
         Entities
             .WithoutBurst().WithStructuralChanges()
             .ForEach((Entity entity,
-                        ref Translation position,
-                        ref Shoot shot) =>
+                        ref Health user) =>
             {
-
-                if (!shot.alive)
+                if (user.ishit == true)
                 {
-                    EntityManager.DestroyEntity(entity);
+                    Debug.Log("test");
+                    user.health -= 100;
+                    user.ishit = false;
+                    GameObject.Find("Hurt").GetComponent<AudioSource>().Play();
                 }
 
             }).Run();

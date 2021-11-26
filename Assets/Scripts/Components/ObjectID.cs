@@ -9,4 +9,6 @@ public struct ObjectID : IComponentData
 
     public bool isAsteroid;
     public bool isShot;
+    public bool isPlayer;
+    public bool isChunk;
 }

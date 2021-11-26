@@ -21,6 +21,7 @@ public class CollissionSystem : JobComponentSystem
     {
         public ComponentDataFromEntity<Shoot> shotGroup;
         public ComponentDataFromEntity<Asteroid> asteroridGroup;
+        public ComponentDataFromEntity<Health> healthGroup;
         public ComponentDataFromEntity<ObjectID> id;
 
         public void Execute(CollisionEvent collisionEvent)
@@ -43,17 +44,38 @@ public class CollissionSystem : JobComponentSystem
 
             }
 
+            if (id[entityA].isAsteroid == true && id[entityB].isPlayer == true)
+            {
 
+                var aliveComponent2 = healthGroup[entityB];
+                aliveComponent2.ishit = true;
+                healthGroup[entityB] = aliveComponent2;
+            }
+
+            if (id[entityA].isChunk == true && id[entityB].isPlayer == true)
+            {
+
+
+                var aliveComponent2 = healthGroup[entityB];
+                aliveComponent2.ishit = true;
+                healthGroup[entityB] = aliveComponent2;
+            }
+
+           
         }
+
+
     }
 
     protected override JobHandle OnUpdate(JobHandle inputDeps)
     {
         JobHandle jobHandle = new CollisionEventImpulseJob
         {
+
             shotGroup = GetComponentDataFromEntity<Shoot>(),
             asteroridGroup = GetComponentDataFromEntity<Asteroid>(),
             id = GetComponentDataFromEntity<ObjectID>(),
+            healthGroup = GetComponentDataFromEntity<Health>(),
         }.Schedule(m_StepPhysicsWorldSystem.Simulation, ref m_BuildPhysicsWorldSystem.PhysicsWorld, inputDeps);
 
         jobHandle.Complete();
